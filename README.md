@@ -29,8 +29,8 @@ Added reference to db in StartUp.cs ConfigureServices Method
 ## Create A DB using docker
 
 > docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa55w0rd2020' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-![Db Creation](/Images/DB_Creation.jpg "Db Creation")
-![Writing to DB](/Images/Writing_To_DB.jpg "Writing to DB")
+![Db Creation](https://github.com/KarlFarrugia/Interview.ShippingApp/blob/main/Images/DB_Creation.PNG "Db Creation")
+![Writing to DB](https://github.com/KarlFarrugia/Interview.ShippingApp/blob/main/Images/Writing_To_DB.PNG "Writing to DB")
 
 ## Docker
 
