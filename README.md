@@ -1,6 +1,13 @@
 # Interview.ShippingApp
 # Information
 
+Solution created using 
+    vscode
+    dotnet 
+    dotnet ef
+    docker
+    npm 
+
 ## Setup 
 
 > dotnet new reactredux
