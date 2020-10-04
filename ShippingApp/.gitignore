@@ -181,8 +181,6 @@ ClientBin/
 orleans.codegen.cs
 
 /node_modules
-/mssqluser
-/mssqlsystem
 
 # RIA/Silverlight projects
 Generated_Code/

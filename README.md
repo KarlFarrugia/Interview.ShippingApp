@@ -39,7 +39,7 @@ Username kfarrugia
 Working Directory './Interview.ShippingApp'
 
 > docker build -t kfarrugia/shippingapp .  
-> docker run  -p 8080:80 kfarrugia/shippingapp
+> docker run -p 8080:80 kfarrugia/shippingapp  
 > docker-compose up
 
 > docker volume create mssqlsystem
