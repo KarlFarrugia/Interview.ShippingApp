@@ -1,16 +1,24 @@
-import * as React from 'react';
-import { Route } from 'react-router';
-import Layout from './components/Layout';
-import Home from './components/Home';
-import Counter from './components/Counter';
-import FetchData from './components/FetchData';
+//#region Imports
 
-import './custom.css'
+import * as React from 'react';
+import { Route, Switch } from "react-router-dom";
+import Suspend from './components/Suspend';
+
+//Pages
+const Home = React.lazy(() => import('./Pages/Home'));
+const Cargo4You = React.lazy(() => import('./Pages/Cargo4You'));
+
+//#endregion
 
 export default () => (
-    <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
-    </Layout>
+  <Switch>
+    <Route
+      path="/Cargo4You"
+      component={Suspend(Cargo4You)}
+    />
+    <Route
+      path="/"
+      component={Suspend(Home)}
+    />
+  </Switch>
 );
