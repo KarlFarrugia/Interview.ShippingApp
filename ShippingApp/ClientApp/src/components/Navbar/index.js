@@ -12,7 +12,10 @@ import GridItem from "../Grid/GridItem.jsx";
 import GridContainer from "../Grid/GridContainer.jsx";
 
 // Import image
-import site_logo from "../../assets/images/site_logo.png"
+import SiteLogo from "../../assets/images/site_logo.png";
+import Cargo4YouLogo from "../../assets/images/Cargo4YouLogo.png";
+import ShipFasterLogo from "../../assets/images/ShipFasterLogo.png";
+import MaltaShipLogo from "../../assets/images/MaltaShipLogo.png";
 
 // Import material-ui core components
 import FormControl from "@material-ui/core/FormControl";
@@ -20,7 +23,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 // Import styled components
-import {StyledSelect, LogoImg, NavbarTitle, NavbarPosition, NavigationSpacer, NavigationLinkText} from '../../assets/StyledComponents/Navigation';
+import {StyledSelect, StyledFormControl, LogoImg, NavbarPosition, NavigationSpacer, NavigationLogoImg} from '../../assets/StyledComponents/Navigation';
 
 // Import custom configurations functions
 import { LANGUAGES } from '../../config';
@@ -30,10 +33,10 @@ import { LANGUAGES } from '../../config';
 /**
  * Navbar component
  *  
- * This component uses a grid container to returns the top navbar with the site logo and the respective 5 navigation links
+ * This component uses a grid container to returns the top navbar with the site logo and the respective 3 navigation logo links
  * 
  * @name Navbar
- * @constant
+ * @function
  * @returns {StyledComponent} A styled component which uses grid container to render the site logo and navigation bar
  */
 function Navbar (){
@@ -69,7 +72,7 @@ function Navbar (){
                 <GridItem xs={12} sm={4} lg={7}>
                     <NavigationSpacer>
                         <Link to={"/"}>
-                            <LogoImg src={site_logo}/> <NavbarTitle>{t("common:app_title")}</NavbarTitle>
+                            <LogoImg src={SiteLogo}/>
                         </Link>
                     </NavigationSpacer>
                 </GridItem>
@@ -78,9 +81,30 @@ function Navbar (){
                         direction="row"
                         justify="flex-end"        
                     >
-                        <GridItem xs={2} sm={1} md={1} lg={2}>
+                        <GridItem xs={3} sm={3}>
+                            <NavigationSpacer>
+                                <Link to={"/Cargo4You"}>
+                                    <NavigationLogoImg src={Cargo4YouLogo}/>
+                                </Link>
+                            </NavigationSpacer>
+                        </GridItem>
+                        <GridItem xs={3} sm={3}>
+                            <NavigationSpacer>
+                                <Link to={"/ShipFaster"}>
+                                    <NavigationLogoImg src={ShipFasterLogo}/>
+                                </Link>
+                            </NavigationSpacer>
+                        </GridItem>
+                        <GridItem xs={3} sm={3}>
+                            <NavigationSpacer>
+                                <Link to={"/MaltaShip"}>
+                                    <NavigationLogoImg src={MaltaShipLogo}/>
+                                </Link>
+                            </NavigationSpacer>
+                        </GridItem>
+                        <GridItem xs={3} sm={3}>
                             <ThemeProvider theme={theme}>
-                                <FormControl>
+                                <StyledFormControl>
                                     {/* The drop down list section */}
                                     <StyledSelect
                                         MenuProps={{}}
@@ -109,33 +133,12 @@ function Navbar (){
                                             );
                                         })}
                                         </StyledSelect>
-                                </FormControl>
+                                </StyledFormControl>
                             </ThemeProvider>
                         </GridItem>
-                        <GridItem xs={2} sm={1} md={1} lg={2}>
-                            <NavigationSpacer>
-                                <Link to={"/Cargo4You"}>
-                                    <NavigationLinkText>Cargo4You</NavigationLinkText>
-                                </Link>
-                            </NavigationSpacer>
-                        </GridItem>
-                        <GridItem xs={2} sm={1} md={1} lg={2}>
-                            <NavigationSpacer>
-                                <Link to={"/ShipFaster"}>
-                                    <NavigationLinkText>ShipFaster</NavigationLinkText>
-                                </Link>
-                            </NavigationSpacer>
-                        </GridItem>
-                        <GridItem xs={2} sm={1} md={1} lg={2}>
-                            <NavigationSpacer>
-                                <Link to={"/MaltaShip"}>
-                                    <NavigationLinkText>MaltaShip</NavigationLinkText>
-                                </Link>
-                            </NavigationSpacer>
-                        </GridItem>
-                    </GridContainer >
+                    </GridContainer>
                 </GridItem>
-            </GridContainer >
+            </GridContainer>
         </NavbarPosition>
     );
 }

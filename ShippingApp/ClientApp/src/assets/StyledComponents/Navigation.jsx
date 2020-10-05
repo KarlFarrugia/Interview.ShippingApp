@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 // @material-ui/core components
 import Select from "@material-ui/core/Select";
+import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 //#endregion 
@@ -12,23 +13,19 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 //#region Exported Styled Components
 
 export const LogoImg = styled.img`    
-    margin-top: 15px;
+    margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
 `
 
+export const NavigationLogoImg = styled.img` 
+    width: 100px;
+    height: 110px;
+    padding-top: 20px;
+`
 export const NavbarPosition = styled.div`
     z-index: 99999;
     display: contents;
-`
-
-export const NavbarTitle = styled.div`
-    display: table-caption;
-    width: max-content;
-    margin-left: 5%;
-    margin-bottom: 10px;
-    font-size: larger;
-    color: white;
 `
 
 export const NavigationItem = styled.span`    
@@ -50,25 +47,6 @@ export const NavigationLine = styled.div`
 
 export const NavigationSpacer = styled.div`
     margin-bottom: 10px;
-`;
-
-export const SecondNavigationItem = styled.div`
-    float: right;
-    @media (max-width: 425px) {
-        font-size: 12px !important;
-    }
-`;
-
-export const AdultCheckbox = styled.div`
-    position: absolute;
-    margin-top: -35px;
-    margin-left: -40px;
-    @media (min-width: 2000px) {
-        margin-left: 60px;
-    }
-    @media (max-width: 360px) {
-        margin-left: -60px;
-    }
 `;
 
 export const StyledSelect = styled(Select)`
@@ -93,6 +71,10 @@ export const StyledFormControlLabel = styled(FormControlLabel)`
             font-size: 12px !important;
         }
     }
+`;
+
+export const StyledFormControl = styled(FormControl)`
+    margin-top: 45px !important;
 `;
 
 //#endregion 

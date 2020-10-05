@@ -4,7 +4,7 @@
 import React from 'react';
 
 // Import styled components
-import {FooterContainer, FooterLink, FooterImg} from '../../assets/StyledComponents/Footer';
+import {FooterContainer, FooterLink, FooterImg, FooterText} from '../../assets/StyledComponents/Footer';
 
 // Import images
 import KFLogo from "../../assets/images/KFLogo.png"
@@ -24,6 +24,7 @@ import GithubLogo from "../../assets/images/GitHubLogo.png"
 export default function Footer (){
     return (
         <FooterContainer>
+            <FooterText>(C) 2020 Cargo4You </FooterText>
             <FooterLink href="https://karlfarrugia.com/"><FooterImg src={KFLogo} alt="Github Logo" width={30} /></FooterLink>
             <FooterLink href="https://github.com/KarlFarrugia"><FooterImg src={GithubLogo} alt="Github Logo" width={30} /></FooterLink>
         </FooterContainer>

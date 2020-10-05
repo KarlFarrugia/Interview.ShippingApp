@@ -42,7 +42,7 @@ export const BackgroundElement = styled.div`
     background: url(${ShippingApp}) center center / cover no-repeat fixed;
     position: fixed;
     top: 0px;
-    filter: saturate(0.5) opacity(0.3);
+    filter: saturate(0.05) opacity(0.1);
     width: 100%;
     max-width: 100%;
     height: 100%;
