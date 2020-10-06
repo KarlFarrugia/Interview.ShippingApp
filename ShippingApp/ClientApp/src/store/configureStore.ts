@@ -3,12 +3,18 @@ import thunk from 'redux-thunk';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { History } from 'history';
 import { ApplicationState, reducers } from './';
+import * as Sentry from "@sentry/react";
 
 export default function configureStore(history: History, initialState?: ApplicationState) {
     const middleware = [
         thunk,
         routerMiddleware(history)
     ];
+
+    //Link Sentry to the redux store
+    const sentryReduxEnhancer = Sentry.createReduxEnhancer({
+      // Optionally pass options
+    });
 
     const rootReducer = combineReducers({
         ...reducers,
@@ -24,6 +30,6 @@ export default function configureStore(history: History, initialState?: Applicat
     return createStore(
         rootReducer,
         initialState,
-        compose(applyMiddleware(...middleware), ...enhancers)
+        compose(applyMiddleware(...middleware), sentryReduxEnhancer, ...enhancers)
     );
 }
