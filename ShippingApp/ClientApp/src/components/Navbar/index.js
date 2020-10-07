@@ -131,7 +131,7 @@ function Navbar (){
                                             </MenuItem>
                                             );
                                         })}
-                                        </StyledSelect>
+                                    </StyledSelect>
                                 </StyledFormControl>
                             </ThemeProvider>
                         </GridItem>

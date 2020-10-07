@@ -85,8 +85,8 @@ function ShipFaster(props: Props){
       <CompanyText>
         <HeadingText>{t("shipping_page:heading_notice")}</HeadingText>
         <br />
-        <ParagraphText>{t("notice:parcel_weight")} {t("notice:min")} 10kg {t("notice:max")} 30kg</ParagraphText>
-        <ParagraphText>{t("notice:parcel_volume")} {t("notice:max")} 1700cm<SuperText>3</SuperText></ParagraphText>
+        <ParagraphText>{t("notice:parcel_weight")} {t("notice:min")} 10kg</ParagraphText>
+        <ParagraphText>{t("notice:parcel_volume")} {t("notice:min")} 500cm<SuperText>3</SuperText></ParagraphText>
         <br />
         <HeadingText>{t("shipping_page:heading_notice2")}</HeadingText>
         <br />

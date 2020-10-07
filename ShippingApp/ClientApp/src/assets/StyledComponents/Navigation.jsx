@@ -16,6 +16,7 @@ export const LogoImg = styled.img`
     margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 20px;
 `
 
 export const NavigationLogoImg = styled.img` 

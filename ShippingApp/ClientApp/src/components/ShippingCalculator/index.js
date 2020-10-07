@@ -25,7 +25,6 @@ import Api from '../../api';
 
 function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValidations, dimensionsValidations, weightPrice, dimensionPrice }) {
     function ExecuteUpdate (eventData){
-        setParcel(eventData);
         Api(eventData);
     }
     
@@ -72,6 +71,7 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
 
         const volume = CalculateVolume(parcel.width, parcel.depth, parcel.height);
         const weight = parseFloat(parcel.weight);
+        setParcel(parcel);
         SetVolume(volume);
 
         //if min dimension is unset and the volume is less than or equal to max
@@ -108,7 +108,6 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
                 <br />
                 <FormControl>
                     <StyledTextField 
-                        autoFocus 
                         value={width} 
                         label={t("metric:width")} 
                         id="width-input" 
@@ -121,7 +120,6 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
                         onChange={handleChange} 
                     />
                     <StyledTextField 
-                        autoFocus 
                         value={depth} 
                         label={t("metric:depth")} 
                         id="depth-input" 
@@ -134,7 +132,6 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
                         onChange={handleChange} 
                     />
                     <StyledTextField
-                        autoFocus 
                         value={height} 
                         label={t("metric:height")} 
                         id="height-input" 
@@ -152,7 +149,6 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
                 <CalculationHeading>{t("shipping_page:insert_weight")}</CalculationHeading>
                 <br />
                 <StyledTextField 
-                    autoFocus 
                     value={weight} 
                     label={t("metric:weight")} 
                     id="weight-input" 
@@ -170,7 +166,7 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
                 <br />
                 <ParagraphSection>{t("shipping_page:total_weight")}: {weight}</ParagraphSection>
                 <ParagraphSection>{t("shipping_page:total_volume")}: {volume}</ParagraphSection>
-                <ParagraphSection>{t("shipping_page:cost")}: €{price}</ParagraphSection>
+                <ParagraphSection>{t("shipping_page:cost")}: €{parseFloat(price).toFixed(2)}</ParagraphSection>
             </GridItem>
             <GridItem xs={12}>
                 <StyledButton onClick={() => clearParcel()}variant="contained" disabled={!valid}>
