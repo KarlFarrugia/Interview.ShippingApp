@@ -11,10 +11,43 @@ import MaltaShip from '../images/maltaship.jpg'
 //#region Exported Styled Components
 
 export const Layout = styled.section`
-    margin: 5%;
-    display: flex;
-    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
 `
+
+export const HeadingText = styled.h3`
+    color: #17224c;
+`
+
+export const ParagraphText = styled.p`
+    color: white;
+    padding-left: 30px;
+
+    span{
+        vertical-align: super;
+        font-size: 0.5em;
+    }
+`
+
+export const ParagraphTextHead = styled.p`
+    color: #b9aa06;
+    font-weight: bold;
+`
+
+
+export const ParagraphSection = styled.p`
+    color: white;
+`
+
+export const CalculationHeading = styled.h4`
+    color: #17224c;
+`
+
+export const CompanyText = styled.div`
+    margin-bottom: 5%;
+`
+
+export const SuperText = styled.span``
 
 export const Cargo4YouBackgroundElement = styled.div`    
     background: url(${Cargo4You}) center center / cover no-repeat fixed;
@@ -52,6 +85,9 @@ export const MaltaShipBackgroundElement = styled.div`
 export const Logo = styled.img`
     height: 270px;
     width: 270px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 //#endregion 

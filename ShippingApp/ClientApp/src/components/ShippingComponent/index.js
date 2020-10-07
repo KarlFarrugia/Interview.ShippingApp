@@ -9,32 +9,32 @@ import GridContainer from "../Grid/GridContainer.jsx";
 // Import styled components and the styled component from react as it is needed for the backdrop
 import {Logo} from "../../assets/StyledComponents/Pages";
 
-function Cargo4You ({ parcel, setParcel, clearParcel, logo, weightValidations, dimensionsValidations, weightPrice, dimensionPrice }) {
+function ShippingComponent ({ companyText, parcel, setParcel, clearParcel, logo, weightValidations, dimensionsValidations, weightPrice, dimensionPrice }) {
     return(
         <GridContainer
         direction="row"
-        justify="space-around"
+        justify="center"
         alignItems="flex-start"
         >
-            <GridItem xs={6}>
+            <GridItem xs={12} sm={6}>
                 <Logo src={logo} />
             </GridItem>
-            <GridItem xs={6}>
-                <p>We ship parcels that satisfy the below conditions</p>
-                <p>Size Up to 20kg</p>
-                <p>Parcel Volume Up to 2000cm3</p>
+            <GridItem xs={12} sm={6}>
+                {companyText}
             </GridItem>
-            <ShippingCalculator 
-                parcel={parcel} 
-                setParcel={setParcel} 
-                clearParcel={clearParcel}
-                weightValidations={weightValidations}
-                dimensionsValidations={dimensionsValidations}
-                weightPrice={weightPrice}
-                dimensionPrice={dimensionPrice}
-            />
+            <GridItem xs={12}>
+                <ShippingCalculator 
+                    parcel={parcel} 
+                    setParcel={setParcel} 
+                    clearParcel={clearParcel}
+                    weightValidations={weightValidations}
+                    dimensionsValidations={dimensionsValidations}
+                    weightPrice={weightPrice}
+                    dimensionPrice={dimensionPrice}
+                />
+            </GridItem>
         </GridContainer>
     );
 }
 
-export default Cargo4You;
+export default ShippingComponent;

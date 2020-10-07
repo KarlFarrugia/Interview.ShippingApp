@@ -12,7 +12,7 @@ export const FooterContainer = styled.footer`
     bottom: 0;
     width: 100%;
     height: 2.5rem;          
-    margin: 0 15px 15px 0;
+    margin-right: 15px;
 `
 export const FooterText = styled.span`
     color: white;
