@@ -76,6 +76,7 @@ function Cargo4You(props: Props){
   // Get the translation and language switching components
   const { t, i18n } = useTranslation("");
 
+  //[TODO]:: Populate prices from config file
   function companyText (){
     return(
       <CompanyText>

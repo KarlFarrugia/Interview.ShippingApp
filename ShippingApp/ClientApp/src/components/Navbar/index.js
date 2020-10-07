@@ -18,7 +18,6 @@ import ShipFasterLogo from "../../assets/images/ShipFasterLogo.png";
 import MaltaShipLogo from "../../assets/images/MaltaShipLogo.png";
 
 // Import material-ui core components
-import FormControl from "@material-ui/core/FormControl";
 import MenuItem from "@material-ui/core/MenuItem";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
@@ -81,28 +80,28 @@ function Navbar (){
                         direction="row"
                         justify="flex-end"        
                     >
-                        <GridItem xs={3} sm={3}>
+                        <GridItem xs={6} sm={3}>
                             <NavigationSpacer>
                                 <Link to={"/Cargo4You"}>
                                     <NavigationLogoImg src={Cargo4YouLogo}/>
                                 </Link>
                             </NavigationSpacer>
                         </GridItem>
-                        <GridItem xs={3} sm={3}>
+                        <GridItem xs={6} sm={3}>
                             <NavigationSpacer>
                                 <Link to={"/ShipFaster"}>
                                     <NavigationLogoImg src={ShipFasterLogo}/>
                                 </Link>
                             </NavigationSpacer>
                         </GridItem>
-                        <GridItem xs={3} sm={3}>
+                        <GridItem xs={6} sm={3}>
                             <NavigationSpacer>
                                 <Link to={"/MaltaShip"}>
                                     <NavigationLogoImg src={MaltaShipLogo}/>
                                 </Link>
                             </NavigationSpacer>
                         </GridItem>
-                        <GridItem xs={3} sm={3}>
+                        <GridItem xs={6} sm={3}>
                             <ThemeProvider theme={theme}>
                                 <StyledFormControl>
                                     {/* The drop down list section */}

@@ -17,6 +17,7 @@ export const Layout = styled.section`
 
 export const HeadingText = styled.h3`
     color: #17224c;
+    min-height: 30px;
 `
 
 export const ParagraphText = styled.p`
@@ -41,6 +42,8 @@ export const ParagraphSection = styled.p`
 
 export const CalculationHeading = styled.h4`
     color: #17224c;
+    min-height: 55px;
+    margin-top: 10%;
 `
 
 export const CompanyText = styled.div`

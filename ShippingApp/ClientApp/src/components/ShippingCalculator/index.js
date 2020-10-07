@@ -32,10 +32,10 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
     // Debounce the search for half a second and then update the redux store using the movie_search action
     const delayedHandleChange = debounce(eventData => ExecuteUpdate(eventData), 3000);
 
-    const parcelObject = CreateParcelState(parseInt(parcel[0]), parseInt(parcel[1]), parseInt(parcel[2]), parseInt(parcel[3]));
+    const parcelObject = CreateParcelState(parcel[0], parcel[1], parcel[2], parcel[3]);
 
     // Get the translation and language switching components
-    const { t, i18n } = useTranslation("");
+    const { t } = useTranslation("");
 
     // Store a local version of the search value using useState
     const [valid, SetValid] = useState(false);
@@ -71,17 +71,26 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
         }
 
         const volume = CalculateVolume(parcel.width, parcel.depth, parcel.height);
+        const weight = parseFloat(parcel.weight);
         SetVolume(volume);
+
         //if min dimension is unset and the volume is less than or equal to max
         //if max dimension is unset and the volume is greater than or equal to min
         //if volume is between min and max
+        
+        //[TODO]::FIX VALIDATION
+
         if(
-            (dimensionsValidations.min < 0 && volume <= dimensionsValidations.max) ||
+            (weight > 0 && volume > 0) &&
+            ((dimensionsValidations.min < 0 && volume <= dimensionsValidations.max) ||
             (dimensionsValidations.max < 0 && volume >= dimensionsValidations.min) ||
-            (dimensionsValidations.min <= volume || volume <= dimensionsValidations.max)        
+            (dimensionsValidations.min <= volume && volume <= dimensionsValidations.max)) &&
+            ((weightValidations.min < 0 && weight <= weightValidations.max) ||
+            (weightValidations.max < 0 && weight >= weightValidations.min) ||
+            (weightValidations.min <= weight && weight <= weightValidations.max))        
         ){
             SetValid(true);
-            SetPrice(Math.max(weightPrice(parcel.weight), dimensionPrice(volume)))
+            SetPrice(Math.max(weight, dimensionPrice(volume)))
             delayedHandleChange(parcel);
         } else {            
             SetValid(false);
@@ -94,7 +103,7 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
             justify="center"
             alignItems="flex-start"
         >
-            <GridItem xs={4}>
+            <GridItem xs={6} sm={4}>
                 <CalculationHeading>{t("shipping_page:insert_dimension")}</CalculationHeading>
                 <br />
                 <FormControl>
@@ -139,7 +148,7 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
                     />
                 </FormControl>
             </GridItem>
-            <GridItem xs={4}>
+            <GridItem xs={6} sm={4}>
                 <CalculationHeading>{t("shipping_page:insert_weight")}</CalculationHeading>
                 <br />
                 <StyledTextField 
@@ -156,7 +165,7 @@ function ShippingCalculator ({ parcel, setParcel, clearParcel, logo, weightValid
                     onChange={handleChange} 
                 />
             </GridItem>
-            <GridItem xs={4}>
+            <GridItem xs={12} sm={4}>
                 <CalculationHeading>{t("shipping_page:totals")}</CalculationHeading>
                 <br />
                 <ParagraphSection>{t("shipping_page:total_weight")}: {weight}</ParagraphSection>

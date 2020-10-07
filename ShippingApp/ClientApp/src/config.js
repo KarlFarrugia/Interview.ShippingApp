@@ -1,5 +1,3 @@
-import Cargo4You from "./Pages/Cargo4You";
-
 export const LANGUAGES = [
     {id: "en", name: "English"},
     {id: "mt", name: "Malti"}
